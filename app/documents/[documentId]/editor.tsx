@@ -6,6 +6,7 @@ import StarterKit from '@tiptap/starter-kit'
 import { TableKit } from '@tiptap/extension-table'
 import Image from '@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image'
+import Underline from '@tiptap/extension-underline'
 
 import { useEditorStore } from '@/store/use-edit-store'
 
@@ -45,6 +46,7 @@ export const Editor = () => {
     },
     extensions: [
         StarterKit,
+        Underline,
         TaskList,
         TaskItem.configure({
             nested: true,
@@ -53,7 +55,7 @@ export const Editor = () => {
             table: {resizable: true}
         }),
         Image,
-        ImageResize
+        ImageResize,
     ],
     content: `
         <table>
@@ -75,7 +77,7 @@ export const Editor = () => {
     return (
         <div className='size-full overflow-x-auto bg-[#F9FBFD] px-4 print:p-0 print:bg-white print:overflow-visible'>
             <div className='min-w-max flex justify-center w-[816px] py-4 print:py-0 mx-auto print:w-full print:min-w-0'>
-                <EditorContent editor={editor} />
+                <EditorContent editor={editor} spellCheck={true}/>
             </div>
         </div>
     )
