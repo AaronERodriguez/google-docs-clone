@@ -7,6 +7,8 @@ import { TableKit } from '@tiptap/extension-table'
 import Image from '@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image'
 import Underline from '@tiptap/extension-underline'
+import { FontFamily, TextStyle, Color } from '@tiptap/extension-text-style'
+import Highlight from '@tiptap/extension-highlight'
 
 import { useEditorStore } from '@/store/use-edit-store'
 
@@ -46,6 +48,10 @@ export const Editor = () => {
     },
     extensions: [
         StarterKit,
+        Color,
+        Highlight.configure({multicolor: true}),
+        FontFamily,
+        TextStyle,
         Underline,
         TaskList,
         TaskItem.configure({
