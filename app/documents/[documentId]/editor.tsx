@@ -9,6 +9,7 @@ import ImageResize from 'tiptap-extension-resize-image'
 import Underline from '@tiptap/extension-underline'
 import { FontFamily, TextStyle, Color } from '@tiptap/extension-text-style'
 import Highlight from '@tiptap/extension-highlight'
+import Link from '@tiptap/extension-link'
 
 import { useEditorStore } from '@/store/use-edit-store'
 
@@ -48,6 +49,11 @@ export const Editor = () => {
     },
     extensions: [
         StarterKit,
+        Link.configure({
+            openOnClick: false,
+            autolink: true,
+            defaultProtocol: "https",
+        }),
         Color,
         Highlight.configure({multicolor: true}),
         FontFamily,
