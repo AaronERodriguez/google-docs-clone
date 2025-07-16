@@ -7,12 +7,13 @@ import { TableKit } from '@tiptap/extension-table'
 import Image from '@tiptap/extension-image'
 import ImageResize from 'tiptap-extension-resize-image'
 import Underline from '@tiptap/extension-underline'
-import { FontFamily, TextStyle, Color, FontSize, LineHeight } from '@tiptap/extension-text-style'
+import { FontFamily, TextStyle, Color, FontSize } from '@tiptap/extension-text-style'
 import Highlight from '@tiptap/extension-highlight'
 import Link from '@tiptap/extension-link'
 import TextAlign from '@tiptap/extension-text-align'
 
 import { useEditorStore } from '@/store/use-edit-store'
+import { LineHeightExtension } from '@/extensions/line-height'
 
 export const Editor = () => {
     const {setEditor} = useEditorStore();
@@ -50,7 +51,10 @@ export const Editor = () => {
     },
     extensions: [
         StarterKit,
-        LineHeight,
+        LineHeightExtension.configure({
+            types: ['heading', 'paragraph'],
+            defaultLineHeight: "normal"
+        }),
         FontSize,
         TextAlign.configure({
             types: ['heading', 'paragraph']
