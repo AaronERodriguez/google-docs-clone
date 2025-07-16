@@ -6,7 +6,7 @@ import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigge
 import { Separator } from '@/components/ui/separator';
 import { cn } from '@/lib/utils';
 import { useEditorStore } from '@/store/use-edit-store';
-import { AlignCenter, AlignJustifyIcon, AlignLeftIcon, AlignRightIcon, BoldIcon, ChevronDownIcon, HighlighterIcon, ImageIcon, ItalicIcon, Link2Icon, ListIcon, ListOrderedIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, MinusIcon, PlusIcon, Redo2Icon, RemoveFormattingIcon, SearchIcon, SpellCheckIcon, UnderlineIcon, Undo2Icon, UploadIcon } from 'lucide-react';
+import { AlignCenter, AlignJustifyIcon, AlignLeftIcon, AlignRightIcon, BoldIcon, ChevronDownIcon, HighlighterIcon, ImageIcon, ItalicIcon, Link2Icon, ListIcon, ListOrderedIcon, ListTodoIcon, LucideIcon, MessageSquarePlusIcon, MinusIcon, PlusIcon, PrinterIcon, Redo2Icon, RemoveFormattingIcon, SearchIcon, SpellCheckIcon, UnderlineIcon, Undo2Icon, UploadIcon } from 'lucide-react';
 import React, { useRef, useState } from 'react'
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
@@ -145,22 +145,22 @@ const AlignButton = () => {
         {
             label: 'Align Left',
             value: 'left',
-            icon: AlignLeftIcon
+            icon: AlignLeftIcon,
         },
         {
             label: 'Align Center',
             value: 'center',
-            icon: AlignCenter
+            icon: AlignCenter,
         },
         {
             label: 'Align Right',
             value: 'right',
-            icon: AlignRightIcon
+            icon: AlignRightIcon,
         },
         {
             label: 'Align Justify',
             value: 'justify',
-            icon: AlignJustifyIcon
+            icon: AlignJustifyIcon,
         },
     ]
 
@@ -502,6 +502,11 @@ const Toolbar = () => {
                     label: "Redo",
                     icon: Redo2Icon,
                     onClick: () => editor?.chain().focus().redo().run()
+                },
+                {
+                    label: "Print",
+                    icon: PrinterIcon,
+                    onClick: () => window.print()
                 },
                 {
                     label: "Spell Check",
