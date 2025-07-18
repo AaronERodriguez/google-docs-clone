@@ -9,9 +9,7 @@ import { BoldIcon, FileIcon, FileJsonIcon, FilePenIcon, FilePlusIcon, FileTextIc
 import { BsFilePdf } from 'react-icons/bs'
 import { useEditorStore } from '@/store/use-edit-store'
 
-type Props = {}
-
-const Navbar = (props: Props) => {
+const Navbar = () => {
 
   const {editor} = useEditorStore();
 

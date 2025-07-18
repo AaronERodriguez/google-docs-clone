@@ -4,7 +4,7 @@ import Toolbar from './toolbar';
 import Navbar from './navbar';
 
 
-const DocumentIdPage = async () => {
+const DocumentIdPage = () => {
 
   return (
     <div className='min-h-screen bg-[#FAFBFD]'>
