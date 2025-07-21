@@ -3,11 +3,15 @@ import { TableCell, TableRow } from '@/components/ui/table';
 import {SiGoogledocs} from 'react-icons/si'
 import { Doc } from '@/convex/_generated/dataModel'
 import React from 'react'
-import { Building2Icon, CircleUserIcon, MoreVertical } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { Building2Icon, CircleUserIcon } from 'lucide-react';
+import DocumentMenu from './document-menu';
 
 type Props = {
     document: Doc<"documents">;
+}
+
+const onNewTabClick = (id: string) => {
+    window.open(`/documents/${id}`, "_blank")
 }
 
 const DocumentRow = ({document}: Props) => {
@@ -27,9 +31,7 @@ const DocumentRow = ({document}: Props) => {
             {format(new Date(document._creationTime), "MMM dd, yyyy")}
         </TableCell>
         <TableCell className='flex justify-end'>
-            <Button variant={'ghost'} size={'icon'} className='rounded-full'>
-                <MoreVertical className='size-4'/>
-            </Button>
+            <DocumentMenu documentId={document._id} title={document.title} onNewTab={onNewTabClick}/>
         </TableCell>
     </TableRow>
   )
